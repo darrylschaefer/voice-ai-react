@@ -107,9 +107,8 @@
 }
 
 .IconButton:hover {
-  background-color: var(--blackA11);
-  color: var(--whiteA12);
-}
+  background-color: var(--blackA3);
+  color: var(--blackA10);}
 
 .IconButton:focus {
   box-shadow: 0 0 0 2px black;

@@ -25,7 +25,6 @@
      .Form
 {
         position: absolute;
-        border-top: 1px solid var(--blackA11);
         width: 100%;
         bottom: 0px;
         display: flex;
@@ -34,8 +33,14 @@
 
 .Form input
 {
+    border-top: 1px solid var(--blackA12);
     color: var(--blackA11);
     flex-grow: 1;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    z-index:1;
 }
 
 .Form input::placeholder
