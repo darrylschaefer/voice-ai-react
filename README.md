@@ -7,6 +7,10 @@ This is a React application that allows users to engage in voice-based conversat
 - Real-time, interactive communication
 - Responsive and user-friendly interface
 - Compatible with various devices and screen sizes
+<br><br>
+
+https://github.com/darrylschaefer/voice-ai-react/assets/119073511/ec5d8ab7-841c-40d4-9e2a-a887d27ccca0
+
 
 ## Prerequisites
 
