@@ -7,6 +7,8 @@ const Prompt = ({
   selectedPrompt: selectedPrompt,
   promptOpen: promptOpen,
   setPromptOpen: setPromptOpen,
+  rerender: rerender,
+  setRerender: setRerender,
 }) => {
   const [loading, setLoading] = useState(false);
 
@@ -33,6 +35,7 @@ const Prompt = ({
               value={selectedPrompt.current}
               onChange={(event) => {
                 selectedPrompt.current = event.target.value;
+                setRerender(rerender + 1);
               }}
             />
           </fieldset>
