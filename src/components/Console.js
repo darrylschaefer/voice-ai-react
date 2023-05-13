@@ -241,11 +241,17 @@ function Console({
           return;
         }
         setActivityDetection(1);
+        if(currentRecording != null){
+          clear();
+        }
         currentRecording = collectAudio();
       }
 
       function clear() {
+        if(currentRecording != null){
+          currentRecording.cancel();
         currentRecording = null;
+      }
       }
 
       return {
