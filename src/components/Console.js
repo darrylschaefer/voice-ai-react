@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Toolbar from "src/components/Toolbar/Toolbar";
 import styles from "@/styles/Console.module.css";
 import Prompt from "src/components/Dropdown/Prompt";
+import promptOptions from "src/promptOptions.js";
 
 function Console({
   userMediaStream: userMediaStream,
@@ -203,7 +204,7 @@ function Console({
     const prompt = [
       {
         role: "system",
-        content: `${selectedPrompt.current} ${interviewerPersonality} The user will state the topic they're interested in learning about; if none is offered, kindly ask the user for their desired topic.`,
+        content: `${selectedPrompt.current} ${interviewerPersonality}`,
       },
     ];
 
