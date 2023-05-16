@@ -100,7 +100,7 @@ function Console({
       {
         label: "Friendly",
         value: "friendly and warm",
-        enabled: true,
+        enabled: false,
       },
       {
         label: "Formal",
@@ -122,6 +122,11 @@ function Console({
         value: "enthusiastic and energetic",
         enabled: false,
       },
+      {
+        label: "None",
+        value: "",
+        enabled: true,
+      }
     ],
     feedback: true,
   });
@@ -195,11 +200,14 @@ function Console({
         option.value.toLowerCase()
       );
       const personalityStr = personalities.join(", ");
-      interviewerPersonality = `Your personality type is ${personalityStr}.`;
+      // If personality is "", then the interviewer will not have a personality
+      if (personalityStr != "") {
+        interviewerPersonality = `Your personality type is ${personalityStr}.`;
     } else {
       interviewerPersonality =
-        "Warm, friendly, and encouraging. You are a supportive and helpful interviewer.";
+        "";
     }
+  }
 
     const prompt = [
       {
