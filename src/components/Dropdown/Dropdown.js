@@ -6,6 +6,7 @@ import styles from "@/styles/DropdownMenu.module.css";
 import ThresholdSlider from "/src/components/Dropdown/ThresholdSlider";
 import MicQuietSlider from "./MicQuietSlider";
 import { Menu } from "react-feather";
+import promptOptions from "/src/promptOptions.js"
 
 const Dropdown = ({
   currentSession: currentSession,
@@ -19,6 +20,7 @@ const Dropdown = ({
   micQuiet: micQuiet,
   resetPlaceholderPrompt: resetPlaceholderPrompt,
   promptSettings: promptSettings,
+  selectedPrompt: selectedPrompt,
 }) => {
   
   
@@ -98,6 +100,49 @@ const Dropdown = ({
           </DropdownMenu.Sub>
 
           <DropdownMenu.Separator className={styles.Separator} />
+
+          
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className={styles.DropdownMenuSubTrigger}>
+              Prompt Selection
+              <div className={styles.RightSlot}>
+                <ChevronRightIcon />
+              </div>
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent
+                className={styles.DropdownMenuSubContent}
+                sideOffset={2}
+                alignOffset={-5}
+              >
+                <DropdownMenu.Label className={styles.DropdownMenuLabel}>
+                  Prompts
+                </DropdownMenu.Label>
+                {promptOptions.map((prompt, i) => (
+                  <DropdownMenu.CheckboxItem
+                    key={i}
+                    className={styles.DropdownMenuItem}
+                    checked={prompt.prompt === selectedPrompt.current}
+                    onSelect={() => {
+                      abandonSession();
+                      selectedPrompt.current = prompt.prompt;
+                      resetPlaceholderPrompt();
+                    }}
+                  >
+                    <DropdownMenu.ItemIndicator
+                      className={styles.DropdownMenuItemIndicator}
+                    >
+                      <CheckIcon />
+                    </DropdownMenu.ItemIndicator>
+                    {prompt.label}
+                  </DropdownMenu.CheckboxItem>
+                ))}
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+
+          <DropdownMenu.Separator className={styles.Separator} />
+
 
           <DropdownMenu.Label className={styles.DropdownMenuLabel}>
             Personality
