@@ -3,8 +3,7 @@
 {
     background:var(--consoleColor);
     color:var(--fontColor);
-    font-family:monospace;
-    height:600px;
+    height:520px;
     width:1100px;
     overflow:hidden;
     white-space:pre-wrap;
@@ -12,12 +11,11 @@
     max-width:100vw;
     border: 1px solid var(--blackA12);
     font-size:16px;
-    line-height:1.5; 
-    filter: drop-shadow(2px 4px 6px var(--blackA6));
+    line-height:1.5;
     border-radius: 8px;
 }
 .Audio::-webkit-media-controls-panel {
-     background-color: var(--blackA4);
+     background-color: var(--consoleColor);
      }
 
 
@@ -50,14 +48,14 @@
 
 .InnerConsole
 {
-    padding: 18px;
+    padding: 16px;
     padding-bottom:74px;
     height:100%;
     overflow-y:auto;
 }
 
 .InnerConsole > *:not(:first-child) {
-    margin-top:18px;
+    margin-top:16px;
 }
 
 .Message
@@ -68,7 +66,7 @@
 .Message ul
 {
     list-style-type: none;
-    margin-top:18px;
+    margin-top:16px;
 }
 
 .Text
@@ -80,8 +78,8 @@
 {
     width:30%;
     flex-shrink:0;
-    padding-left: 18px;
-    height:2.5rem;
+    padding-left: 16px;
+    height:1rem;
 }
 
 @media(max-width:800px){
@@ -89,9 +87,9 @@
     .Console
     {
         max-width: calc(100vw - 36px);
-        margin-top:18px;
-        margin-left:18px;
-        margin-right:18px;
+        margin-top:16px;
+        margin-left:16px;
+        margin-right:16px;
     }
 
     .InnerConsole
@@ -103,7 +101,7 @@
     {
         width:100%;
         padding:0px;
-        margin-top:18px;
+        margin-top:16px;
     }
 
     .Message

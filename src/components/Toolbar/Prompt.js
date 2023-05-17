@@ -15,7 +15,7 @@ const Prompt = ({
   return (
     <div className={styles.ToolbarButton} onClick={handlePromptSubmit}>
       <div style={{ lineHeight: 1, display: "flex" }}>
-        <FileText size={20} />
+        <FileText size={24} />
       </div>
     </div>
   );

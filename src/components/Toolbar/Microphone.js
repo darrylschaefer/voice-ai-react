@@ -32,7 +32,7 @@ const Microphone = ({
       onClick={handleMicrophoneSubmit}
     >
       <div style={{ lineHeight: 1, display: "flex" }}>
-        <Mic size={20} />
+        <Mic size={24} />
       </div>
     </div>
   );

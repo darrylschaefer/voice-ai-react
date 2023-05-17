@@ -10,7 +10,6 @@ const Prompt = ({
   rerender: rerender,
   setRerender: setRerender,
 }) => {
-  const [loading, setLoading] = useState(false);
 
   function exitPrompt() {
     setPromptOpen(false);

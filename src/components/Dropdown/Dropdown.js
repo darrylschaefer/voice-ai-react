@@ -5,7 +5,7 @@ import { CheckIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import styles from "@/styles/DropdownMenu.module.css";
 import ThresholdSlider from "/src/components/Dropdown/ThresholdSlider";
 import MicQuietSlider from "./MicQuietSlider";
-import { Menu } from "react-feather";
+import { Settings } from "react-feather";
 import promptOptions from "/src/promptOptions.js"
 
 const Dropdown = ({
@@ -44,7 +44,7 @@ const Dropdown = ({
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button className={styles.IconButton} aria-label="Customise options">
-          <Menu size={20} />
+          <Settings size={24} />
         </button>
       </DropdownMenu.Trigger>
 

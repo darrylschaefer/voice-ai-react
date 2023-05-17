@@ -96,6 +96,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-mono);
+  background: rgb(248, 248, 250);
 }
 
 body {
@@ -120,8 +121,7 @@ label {
 
 input[type='text'],
 select {
-  padding: 18px;
-  font-family:monospace;
+  padding: 16px;
 }
 
 input[type='checkbox'] {
@@ -157,7 +157,7 @@ button[type='submit']:hover {
 .blink {
   animation: blink 1s infinite step-start;
   color: rgba(255, 255, 255, 0.5));
-  padding-left: 9px;
+  padding-left: 8px;
   line-height: 1;
 }
 

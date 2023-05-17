@@ -9,6 +9,7 @@
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   border: 1px solid var(--blackA11);
+  z-index:2;
 }
 .DropdownMenuContent[data-side='top'],
 .DropdownMenuSubContent[data-side='top'] {
@@ -103,7 +104,7 @@
   border: 1px solid var(--blackA10);
   box-sizing: border-box;
   cursor: pointer;
-  margin-right:18px;
+  margin-right:16px;
 }
 
 .IconButton:hover {

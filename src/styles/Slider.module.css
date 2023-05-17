@@ -13,14 +13,14 @@
     background-color: rgba(0,0,0,.3);
     position: relative;
     flex-grow: 1;
-    border-radius: 9999px;
+    border-radius: 9998px;
     height: 3px;
   }
   
   .SliderRange {
     position: absolute;
     background-color: black;
-    border-radius: 9999px;
+    border-radius: 9998px;
     height: 100%;
   }
   
