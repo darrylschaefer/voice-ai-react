@@ -92,7 +92,7 @@ function Console({
 
   // This is a stored prompt that is used to generate new sessions
   const selectedPrompt = useRef(
-    "Focus on delivering comprehensive lectures on the desired topic, making sure to present detailed information that enhances students' understanding. Integrate thought-provoking questions throughout the lecture to maintain engagement and encourage critical thinking. Balance the delivery of information with well-timed, concise, and open-ended questions to create an informative and interactive learning experience. Do not give code examples. Do not give lists or ask multiple questions at once. Limit your responses to 3 sentences. Try to end every response with a question to keep the conversation going.",
+    promptOptions[0].prompt
     );
 
   const promptSettings = useRef({
