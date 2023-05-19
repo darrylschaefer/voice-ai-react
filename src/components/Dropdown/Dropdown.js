@@ -6,7 +6,8 @@ import styles from "@/styles/DropdownMenu.module.css";
 import ThresholdSlider from "/src/components/Dropdown/ThresholdSlider";
 import MicQuietSlider from "./MicQuietSlider";
 import { Settings } from "react-feather";
-import promptOptions from "/src/promptOptions.js"
+import lessonOptions from "/src/lessonOptions.js"
+import promptOptionsDefault from "/src/promptOptions.js"
 
 const Dropdown = ({
   currentSession: currentSession,
@@ -21,6 +22,7 @@ const Dropdown = ({
   resetPlaceholderPrompt: resetPlaceholderPrompt,
   promptSettings: promptSettings,
   selectedPrompt: selectedPrompt,
+  promptOptions: promptOptions,
 }) => {
   
   
@@ -118,7 +120,7 @@ const Dropdown = ({
                 <DropdownMenu.Label className={styles.DropdownMenuLabel}>
                   Prompts
                 </DropdownMenu.Label>
-                {promptOptions.map((prompt, i) => (
+                {promptOptions.current.map((prompt, i) => (
                   <DropdownMenu.CheckboxItem
                     key={i}
                     className={styles.DropdownMenuItem}
@@ -141,11 +143,125 @@ const Dropdown = ({
             </DropdownMenu.Portal>
           </DropdownMenu.Sub>
 
+
+          <DropdownMenu.Separator className={styles.Separator} />
+
+          
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger className={styles.DropdownMenuSubTrigger}>
+              Course Selection
+              <div className={styles.RightSlot}>
+                <ChevronRightIcon />
+              </div>
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+  <DropdownMenu.SubContent
+    className={styles.DropdownMenuSubContent}
+    sideOffset={2}
+    alignOffset={-5}
+  >
+    <DropdownMenu.Label className={styles.DropdownMenuLabel}>
+      Courses
+    </DropdownMenu.Label>
+
+    {lessonOptions.map((lesson, i) => {
+      if (lesson.type === "subcategory") {
+        return (
+          <DropdownMenu.Sub key={i}>
+            <DropdownMenu.SubTrigger className={styles.DropdownMenuSubTrigger}>
+              {lesson.label}
+              <div className={styles.RightSlot}>
+                <ChevronRightIcon />
+              </div>
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent
+                className={styles.DropdownMenuSubContent}
+                sideOffset={2}
+                alignOffset={-5}
+              >
+                <DropdownMenu.Label className={styles.DropdownMenuLabel}>
+                  Courses
+                </DropdownMenu.Label>
+                
+                {/* Add your subcategory content here */}
+                {/* You can use another map function for subcategories */}
+                {lesson.promptOptions.map((subcategory, j) => (
+                  <DropdownMenu.CheckboxItem
+                    key={j}
+                    className={styles.DropdownMenuItem}
+                    checked={promptOptions.current === subcategory.promptOptions}
+                    onSelect={() => {
+                      abandonSession();
+                      promptOptions.current = subcategory.promptOptions;
+                      selectedPrompt.current = promptOptions.current[0].prompt;
+                      resetPlaceholderPrompt();
+                    }}
+                  >
+                    <DropdownMenu.ItemIndicator className={styles.DropdownMenuItemIndicator}>
+                      <CheckIcon />
+                    </DropdownMenu.ItemIndicator>
+                    {subcategory.label}
+                  </DropdownMenu.CheckboxItem>
+                ))}
+
+
+                
+                
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+        );
+      } else {
+        return (
+          <DropdownMenu.CheckboxItem
+            key={i}
+            className={styles.DropdownMenuItem}
+            checked={lesson.prompt === selectedPrompt.current}
+            onSelect={() => {
+              abandonSession();
+              promptOptions.current = lesson.promptOptions;
+              resetPlaceholderPrompt();
+            }}
+          >
+            <DropdownMenu.ItemIndicator className={styles.DropdownMenuItemIndicator}>
+              <CheckIcon />
+            </DropdownMenu.ItemIndicator>
+            {lesson.label}
+          </DropdownMenu.CheckboxItem>
+        );
+      }
+    })}
+
+<DropdownMenu.Separator className={styles.Separator} />
+
+
+<DropdownMenu.CheckboxItem
+  className={styles.DropdownMenuItem}
+  checked={ promptOptions.current === promptOptionsDefault }
+  onCheckedChange={(value) => {
+    promptOptions.current = promptOptionsDefault;
+    selectedPrompt.current = promptOptionsDefault[0].prompt;
+    setRerender(!rerender);
+    }}
+>
+  <DropdownMenu.ItemIndicator className={styles.DropdownMenuItemIndicator}>
+    <CheckIcon />
+  </DropdownMenu.ItemIndicator>
+  Default (none)
+</DropdownMenu.CheckboxItem>
+
+  </DropdownMenu.SubContent>
+</DropdownMenu.Portal>
+</DropdownMenu.Sub>
+
+
+
           <DropdownMenu.Separator className={styles.Separator} />
 
 
           <DropdownMenu.Label className={styles.DropdownMenuLabel}>
-            Personality
+            Personality Modifier
           </DropdownMenu.Label>
 
           {promptSettings.current.personalityOptions.map((type, i) => (

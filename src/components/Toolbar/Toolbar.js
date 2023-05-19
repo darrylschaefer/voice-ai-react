@@ -21,6 +21,7 @@ const Toolbar = ({
   micQuiet: micQuiet,
   resetPlaceholderPrompt: resetPlaceholderPrompt,
   promptSettings: promptSettings,
+  promptOptions: promptOptions,
 }) => {
   return (
     <div className={styles.Toolbar}>
@@ -42,6 +43,7 @@ const Toolbar = ({
         micQuiet={micQuiet}
         resetPlaceholderPrompt={resetPlaceholderPrompt}
         promptSettings={promptSettings}
+        promptOptions={promptOptions}
       ></Dropdown>
       <Microphone
         activityDetection={activityDetection}

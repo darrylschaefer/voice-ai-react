@@ -1,4 +1,4 @@
-const promptOptions = [
+const promptOptionsDefault = [
     {
       label: "Discussion",
       value: "Discussion",
@@ -54,4 +54,4 @@ const promptOptions = [
     },
   ];
   
-  export default promptOptions;
+  export default promptOptionsDefault;

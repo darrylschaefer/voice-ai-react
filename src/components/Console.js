@@ -2,12 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Toolbar from "src/components/Toolbar/Toolbar";
 import styles from "@/styles/Console.module.css";
 import Prompt from "src/components/Dropdown/Prompt";
-import promptOptions from "src/promptOptions.js";
+import promptOptionsDefault from "src/promptOptions.js";
+
 
 function Console({
   userMediaStream: userMediaStream,
 }) {
   // Joanna, Kendra, Kimberly, Salli, Joey, Matthew, Ruth, Stephen
+
   const voiceNames = {
     label: "Amazon Polly",
     options: [
@@ -45,6 +47,8 @@ function Console({
       },
     ],
   };
+
+  const promptOptions = useRef(promptOptionsDefault);
 
   const voiceId = useRef(voiceNames.options[0].value);
 
@@ -90,9 +94,9 @@ function Console({
   // basic rerender state used to force rerendering of components
   const [rerender, setRerender] = useState(0);
 
-  // This is a stored prompt that is used to generate new sessions
+  // This is a stored prompt that is used to generate new sessions (used for when the user abandons a session, it keeps a reference to the prompt that was used to generate the session)
   const selectedPrompt = useRef(
-    promptOptions[0].prompt
+    promptOptions.current[0].prompt
     );
 
   const promptSettings = useRef({
@@ -720,6 +724,7 @@ function Console({
         micQuiet={micQuiet}
         resetPlaceholderPrompt={resetPlaceholderPrompt}
         promptSettings={promptSettings}
+        promptOptions={promptOptions}
       ></Toolbar>
     </div>
   );
